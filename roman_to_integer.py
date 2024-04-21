@@ -31,7 +31,7 @@ def romanToInt(s):
     }
     total = 0
     i = 0
-
+  
     while i < len(s):
         total += roman_hash[s[i]] 
 
@@ -59,3 +59,5 @@ def romanToInt(s):
 print(romanToInt('III')) # 3
 print(romanToInt('LVIII')) # 58
 print(romanToInt('MCMXCIV')) # 1991
+
+
