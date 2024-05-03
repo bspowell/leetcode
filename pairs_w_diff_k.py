@@ -48,3 +48,6 @@ def countKDifference(nums, k):
 
 
 print(countKDifference([1,2,2,1], 1)) #4
+
+# good solution:
+# https://leetcode.com/problems/count-number-of-pairs-with-absolute-difference-k/solutions/1471015/python-clean-concise-dictionary-t-c-o-n/
