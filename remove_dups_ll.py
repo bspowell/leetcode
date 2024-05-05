@@ -6,50 +6,50 @@
 # 
 
 
-class Node:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 
-class LinkedList:
-    def __init__(self):
-        self.head = None
+# class Solution:
+#     def deleteDuplicates(self, head):
+#         if not head or not head.next:
+#             return head
 
-    def add(self, value):
-        new_node = Node(value)
-        
-        if self.head is None:
-          self.head = new_node
-          return
-        
-        last_node = self.head
-        while last_node.next:
-            last_node = last_node.next
-        
-        last_node.next = new_node
+#         dummy = ListNode(0)
+#         dummy.next = head
+#         prev = dummy
+#         current = head
 
-    def removeDups(self):
-        temp = self.head
+#         while current:
+#             if prev.val == current.next.val:
+#                 prev.next = current.next
+#             else:
+#               prev.next = current
+#             current = current.next
+            
+#         return dummy.next
 
-        while temp.next:
-            if temp.value == temp.next.value:
-              temp.next = temp.next.next
-        return temp
-    def print(self):
-        temp = self.head
-        while temp:
-            print(temp.value)
-            temp = temp.next
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-list = LinkedList()
+class Solution:
+    def deleteDuplicates(self, head):
+        current = head
+        while current is not None and current.next is not None:
+            if current.next.val == current.val:
+                current.next = current.next.next
+            else:
+                current = current.next
+        return head
 
-list.add(1)
-list.add(2)
-list.add(2)
-list.add(3)
+head = ListNode(1, ListNode(2, ListNode(3, ListNode(3, ListNode(5)))))
+solution = Solution()
+new_head = solution.deleteDuplicates(head)
 
-print(print())
-
-# node = Node(2)
-# print(node.value)
-# print(node.next)
+current = new_head
+while current:
+  print(current.val, end=" -> ")
+  current = current.next
