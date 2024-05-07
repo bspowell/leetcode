@@ -20,33 +20,27 @@
 #  
 
 def mergeIntervals(intervals):
-    result = [intervals[0]]
-    left = 0
-    right = 1
+    intervals.sort(key = lambda i: i[0])
+    output = [intervals[0]]
 
-    if len(intervals) < 2: return intervals
-
-    while right < len(intervals):
-
-        if result[left][0] > intervals[right][0]:
-            result[left] = [intervals[right][0], result[left][1]]
-        if result[left][1] >= intervals[right][0]:
-            result[left] = [result[left][0], intervals[right][1]]
+    for start, end in intervals[1:]:
+        print('this is start: ', start, 'this is end: ', end)
+        lastEnd = output[-1][1]
+        
+        if start <= lastEnd: 
+            output[-1][1] = max(lastEnd, end)
         else:
-            result.append(intervals[right])
-            left += 1
-
-        right += 1
-
-    return result
+            output.append([start, end])
+    
+    return output
 
 
 
 print(mergeIntervals([[1,3],[2,6],[8,10],[15,18]])) #[[1,6],[8,10],[15,18]]
-print(mergeIntervals([[1,4],[4,5]])) # [[1,5]]
-print(mergeIntervals([[1,3],[2,6],[5,5],[1,18]])) # [[1, 18]]
-print(mergeIntervals([[1,4],[5,6]])) # [[1,4],[5,6]]
-print(mergeIntervals([[1,4],[0,4]])) # [[0,4]]
-print(mergeIntervals([[1,4],[0,1]])) # [[0,4]]
+# print(mergeIntervals([[1,4],[4,5]])) # [[1,5]]
+# print(mergeIntervals([[1,3],[2,6],[5,5],[1,18]])) # [[1, 18]]
+# print(mergeIntervals([[1,4],[5,6]])) # [[1,4],[5,6]]
+# print(mergeIntervals([[1,4],[0,4]])) # [[0,4]]
+# print(mergeIntervals([[1,4],[0,1]])) # [[0,4]]
 
 
