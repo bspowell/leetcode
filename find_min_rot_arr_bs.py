@@ -26,18 +26,6 @@ print(findMin([11,13,15,17])) # 11
 #tony
 
 # def findMin(self, nums: List[int]) -> int:
-#     """
-#     possibilities
-#     L < M and R < M
-
-#     [5:L   1     2:M   3     4:R]
-#     [5:LM  1:R   2     3     4]
-#     [5     1:LMR 2     3     4]
-#     [5     1     2     3     4]
-#     [5     1     2     3     4]
-#     [5,1,2,3,4]
-#     [5,1,2,3,4]
-#     """
 
 #     left, right = 0, len(nums) - 1
 #     lowest = float('inf')
